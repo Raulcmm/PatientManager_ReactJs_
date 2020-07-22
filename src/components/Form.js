@@ -1,5 +1,6 @@
 import React from 'react';
 import useForm from '../hooks/useForm';
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = ({ setAppointmentsList }) => {
 	const initialState = {
@@ -14,6 +15,7 @@ const Form = ({ setAppointmentsList }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		data.id=uuidv4(); 
         setAppointmentsList(appointment=>[...appointment,data])
         e.currentTarget.reset(); 
 	};
