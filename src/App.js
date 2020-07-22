@@ -9,7 +9,6 @@ const App = () => {
 	//get the data when the app loaded
 	useEffect(() => {
 		const getAppointmentStorage = JSON.parse(localStorage.getItem('appointments'));
-
 		if (getAppointmentStorage !== null) setAppointmentsList(getAppointmentStorage);
 	}, []);
 

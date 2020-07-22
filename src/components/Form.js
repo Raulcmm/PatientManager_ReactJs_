@@ -2,6 +2,7 @@ import React from 'react';
 import useForm from '../hooks/useForm';
 import { v4 as uuidv4 } from 'uuid';
 
+import PropTypes from 'prop-types';
 const Form = ({ setAppointmentsList, appointmentsList }) => {
 	const initialState = {
 		pet: '',
@@ -76,5 +77,9 @@ const Form = ({ setAppointmentsList, appointmentsList }) => {
 		</div>
 	);
 };
+Form.propTypes={
+	setAppointmentsList:PropTypes.func.isRequired,
+	appointmentsList:PropTypes.array.isRequired
+}
 
 export default Form;
