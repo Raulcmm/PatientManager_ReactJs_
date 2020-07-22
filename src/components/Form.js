@@ -25,6 +25,7 @@ const Form = () => {
                     <label>Symptoms</label>{/**Cambiar */}
                     <textarea name="symptoms"  cols="30" rows="5" className="form-control"></textarea>
                 </div>
+                <button className="btn btn-success float-right" type="submit">Send</button>
             </form>
         </div>
     )
