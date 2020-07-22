@@ -4,7 +4,7 @@ import AppointmentList from './components/AppointmentList';
 
 const App = () => {
 	
-	const [ appointmentsList, setAppointmentsList ] = useState(initialState);
+	const [ appointmentsList, setAppointmentsList ] = useState([]);
 
 	const deleteAppointment = (id) => {
 		const newApp = appointmentsList.filter((appointment) => appointment.id !== id);
