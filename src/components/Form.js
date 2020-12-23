@@ -2,7 +2,8 @@ import React from 'react';
 import useForm from '../hooks/useForm';
 import { v4 as uuidv4 } from 'uuid';
 
-const Form = ({ setAppointmentsList }) => {
+import PropTypes from 'prop-types';
+const Form = ({ setAppointmentsList, appointmentsList }) => {
 	const initialState = {
 		pet: '',
 		owner: '',
@@ -15,9 +16,13 @@ const Form = ({ setAppointmentsList }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		data.id=uuidv4(); 
-        setAppointmentsList(appointment=>[...appointment,data])
-        e.currentTarget.reset(); 
+		data.id = uuidv4();
+		const saveStorage= [...appointmentsList,data]
+		setAppointmentsList( saveStorage );
+		//save in localStorage
+		localStorage.setItem('appointments', JSON.stringify(saveStorage));
+		//reset the form
+		e.currentTarget.reset();
 	};
 
 	return (
@@ -72,5 +77,9 @@ const Form = ({ setAppointmentsList }) => {
 		</div>
 	);
 };
+Form.propTypes={
+	setAppointmentsList:PropTypes.func.isRequired,
+	appointmentsList:PropTypes.array.isRequired
+}
 
 export default Form;
